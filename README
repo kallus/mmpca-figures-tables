@@ -1,0 +1,24 @@
+Scripts for generating figures and tables to the article MM-PCA: Integrative Analysis of Multi-group and Multi-view Data
+
+Install the package mmpca_1.0.tar.gz or install it from CRAN
+
+> Rscript ex1.R
+
+> cd ex2-rank-sel
+> Rscript ex2-prop-seed-n-d.R [prop] [seed] [n] [d]
+# where [prop] should be replaced by the joint proportion
+#       [seed]                       a random seed
+#       [n]                          matrix size rows
+#       [d]                          matrix size columns
+# After calling the above command for all settings and repetitions:
+> Rscript ex2-fig.R
+> cd ..
+
+> cd ex3-sparse-V
+> Rscript main.R
+> Rscript select-k.R
+> cd ..
+
+> cd bioex
+> Rscript gbm-pw-patcov-tcga.R
+> Rscript gbm-pw-patcov-tcga-analysis.R

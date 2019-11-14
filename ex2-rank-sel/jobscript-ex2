@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#SBATCH -A C3SE2019-1-2
+#SBATCH -p vera
+#SBATCH -J ex2
+#SBATCH -N 1
+#SBATCH -n 9
+#SBATCH -c 2
+#SBATCH -t 0-12:00:00
+
+# project, queue partition, job name, request nodes, request cores,
+#   max run time (days-hours:minutes:seconds)
+
+#module load iccifort/2018.3.222-GCC-7.3.0-2.30 impi/2018.3.222 GCC/7.3.0-2.30 GSL/2.5 OpenMPI/3.1.1 R
+#echo "install.packages('mvpca-auto/mvpca_0.0.1.tar.gz', repos=NULL, type='source')" | R --no-save
+
+N=100
+D=25
+
+#Rscript ex2-prop-seed-n-d.R 0 ${SLURM_ARRAY_TASK_ID} $N $D &
+#Rscript ex2-prop-seed-n-d.R 0.125 ${SLURM_ARRAY_TASK_ID} $N $D &
+Rscript ex2-prop-seed-n-d.R 0.25 $1 $N $D &
+#Rscript ex2-prop-seed-n-d.R 0.375 ${SLURM_ARRAY_TASK_ID} $N $D &
+Rscript ex2-prop-seed-n-d.R 0.5 $1 $N $D &
+#Rscript ex2-prop-seed-n-d.R 0.625 ${SLURM_ARRAY_TASK_ID} $N $D &
+Rscript ex2-prop-seed-n-d.R 0.75 $1 $N $D &
+#Rscript ex2-prop-seed-n-d.R 0.875 ${SLURM_ARRAY_TASK_ID} $N $D &
+Rscript ex2-prop-seed-n-d.R 1 $1 $N $D &
+
+wait
