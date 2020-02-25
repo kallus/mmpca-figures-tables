@@ -160,7 +160,7 @@ data <- readRDS('biodata.rds.gz')
 set.seed(1)
 nparam <- 3
 lambda <- matrix(rep(exp(seq(-8, 0, length=10)), nparam), ncol=nparam)
-results <- mvpca::mvpca(data$x, data$inds, k=40, trace=1, lambda=lambda, 
+results <- mmpca::mmpca(data$x, data$inds, k=40, trace=1, lambda=lambda, 
   init_theta=TRUE, cachepath='cache', enable_sparsity=TRUE,
   enable_variable_selection=FALSE)
 fh <- gzfile('gbm-mvpca-analysis-pw-patcov.rds.gz')

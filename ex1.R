@@ -83,7 +83,7 @@ simulate <- function(n, d, seed, snr) {
   })
   inds <- matrix(5, 4, 2)
   inds[, 1] <- 1:4
-  mvpca <- mvpca::mvpca(x, inds, k=2)
+  mvpca <- mmpca::mmpca(x, inds, k=2)
   cmf <- CMF(x, inds, 2, 0)
 
   D <- list(
